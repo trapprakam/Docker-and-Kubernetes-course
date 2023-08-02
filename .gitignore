@@ -6,3 +6,4 @@
 *.html
 *.xml
 /node_modules/
+/build/
