@@ -5,3 +5,4 @@
 .tmp
 *.html
 *.xml
+/node_modules/
