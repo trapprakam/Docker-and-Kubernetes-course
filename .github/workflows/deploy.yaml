@@ -15,5 +15,5 @@ jobs:
       - name: Docker
         # docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          docker build -t DockerAndKubernetesCourse/docker-react-test -f Dockerfile-dev .
-          docker run -e CI=true DockerAndKubernetesCourse/docker-react-test npm test
+          docker build -t docker-react-test -f Dockerfile-dev .
+          docker run -e CI=true docker-react-test npm test
