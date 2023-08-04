@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Docker Build
-        run: docker run -e CI=true docker-react-test npm test
+        run: docker build -t docker-react-test -f Dockerfile-dev .
       - name: Docker Run Tests
         run: docker run -e CI=true docker-react-test npm test
