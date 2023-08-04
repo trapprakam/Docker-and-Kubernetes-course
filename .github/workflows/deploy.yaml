@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
       - name: Docker
         # docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        uses: actions/checkout@v2
         run: |
           docker build -t DockerAndKubernetesCourse/docker-react-test -f Dockerfile-dev .
           docker run -e CI=true DockerAndKubernetesCourse/docker-react-test npm test
