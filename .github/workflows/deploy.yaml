@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Docker
         # docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        run:
+        uses: docker/build-push-action@v3
+        run: |
           docker build -t DockerAndKubernetesCourse/docker-react-test -f Dockerfile-dev .
           docker run -e CI=true DockerAndKubernetesCourse/docker-react-test npm test
