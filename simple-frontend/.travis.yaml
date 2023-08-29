@@ -1,0 +1,21 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t frontend -f Dockerfile-dev .
+
+script:
+  - docker run frontend npm run test
+
+deploy:
+  provider: # Enter your provider here. Ex: elasticbeanstalk
+  region: # Specify the region the provider is deployed. Ex: "us-west-2"
+  app: # The name you set for the instance.
+  env: # The name of the environment
+  bucket_name: # The location of the S3 storage location that you want Travis to store a zip file of your application.
+  bucket_path: # Set this to the same value as the app. This will create a folder in the bucket with the provided name.
+  on:
+    branch: master  # Or main... whatever the main branch is called for your repo in GitHub
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
